@@ -6,7 +6,6 @@ import (
 
 	"github.com/spiegel-im-spiegel/gocli/rwi"
 	"github.com/spiegel-im-spiegel/gprompt"
-	"github.com/spiegel-im-spiegel/gprompt/errs"
 )
 
 func main() {
@@ -18,7 +17,7 @@ func main() {
 		),
 		func(s string) (string, error) {
 			if s == "q" || s == "quit" {
-				return "quit prompt", errs.ErrTerminate
+				return "quit prompt", gprompt.ErrTerminate
 			}
 			runes := []rune(s)
 			for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
@@ -30,7 +29,7 @@ func main() {
 		gprompt.WithHeaderMessage("Input 'q' or 'quit' to stop"),
 	)
 	if !p.IsTerminal() {
-		fmt.Fprintln(os.Stderr, errs.ErrNotTerminal)
+		fmt.Fprintln(os.Stderr, gprompt.ErrNotTerminal)
 		return
 	}
 	if err := p.Run(); err != nil {

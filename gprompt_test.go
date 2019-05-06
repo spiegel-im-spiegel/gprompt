@@ -6,13 +6,12 @@ import (
 	"testing"
 
 	"github.com/spiegel-im-spiegel/gocli/rwi"
-	"github.com/spiegel-im-spiegel/gprompt/errs"
 )
 
 var (
 	testLogic = func(s string) (string, error) {
 		if s == "q" || s == "quit" {
-			return "quit prompt", errs.ErrTerminate
+			return "quit prompt", ErrTerminate
 		}
 		runes := []rune(s)
 		for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {

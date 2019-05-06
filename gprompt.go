@@ -7,7 +7,7 @@ import (
 
 	isatty "github.com/mattn/go-isatty"
 	"github.com/spiegel-im-spiegel/gocli/rwi"
-	"github.com/spiegel-im-spiegel/gprompt/errs"
+	errors "golang.org/x/xerrors"
 )
 
 //Prompt is a class for interactive mode in CUI shell
@@ -63,7 +63,7 @@ func (p *Prompt) IsTerminal() bool {
 //Run function starts interactive mode.
 func (p *Prompt) Run() error {
 	if p == nil {
-		return errs.ErrTerminate
+		return ErrTerminate
 	}
 	if len(p.headerMsg) > 0 {
 		if err := p.rw.Outputln(p.headerMsg); err != nil {
@@ -78,7 +78,7 @@ func (p *Prompt) Run() error {
 		}
 		if res, err := p.function(s); err != nil {
 			_ = p.rw.Outputln(res)
-			if !errs.Is(err, errs.ErrTerminate) {
+			if !errors.Is(err, ErrTerminate) {
 				return err
 			}
 			return nil
@@ -96,7 +96,7 @@ func (p *Prompt) Run() error {
 //Once function starts interactive mode (one round).
 func (p *Prompt) Once() error {
 	if p == nil {
-		return errs.ErrTerminate
+		return ErrTerminate
 	}
 	if len(p.headerMsg) > 0 {
 		if err := p.rw.Outputln(p.headerMsg); err != nil {
@@ -106,7 +106,7 @@ func (p *Prompt) Once() error {
 
 	s, ok := p.get()
 	if !ok {
-		return errs.ErrTerminate
+		return ErrTerminate
 	}
 	if err := p.scanner.Err(); err != nil {
 		return err
@@ -114,7 +114,7 @@ func (p *Prompt) Once() error {
 
 	if res, err := p.function(s); err != nil {
 		_ = p.rw.Outputln(res)
-		if !errs.Is(err, errs.ErrTerminate) {
+		if !errors.Is(err, ErrTerminate) {
 			return err
 		}
 		return nil

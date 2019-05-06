@@ -1,54 +1,28 @@
-package errs
+package gprompt
 
 import (
 	"fmt"
-
-	errors "golang.org/x/xerrors"
+	"testing"
 )
 
-//wrapError is wrapper for error instance
-type wrapError struct {
-	msg   string
-	cause error
-	frame errors.Frame
-}
-
-//Wrap returns wraped error instance
-func Wrap(err error, msg string) error {
-	if err == nil {
-		return nil
+func TestErrno(t *testing.T) {
+	testCases := []struct {
+		err error
+		str string
+	}{
+		{err: Errno(0), str: "unknown error (0)"},
+		{err: ErrTerminate, str: "terminate prompt"},
+		{err: ErrNotTerminal, str: "not terminal (or pipe?)"},
+		{err: Errno(3), str: "unknown error (3)"},
 	}
-	return &wrapError{msg: msg, cause: err, frame: errors.Caller(1)}
-}
 
-//Wrapf returns wraped error instance
-func Wrapf(err error, format string, args ...interface{}) error {
-	if err == nil {
-		return nil
+	for _, tc := range testCases {
+		errStr := tc.err.Error()
+		if errStr != tc.str {
+			t.Errorf("\"%v\" != \"%v\"", errStr, tc.str)
+		}
+		fmt.Printf("Info(TestErrno): %+v\n", tc.err)
 	}
-	return &wrapError{msg: fmt.Sprintf(format, args...), cause: err, frame: errors.Caller(1)}
-}
-
-//Error method for error interface
-func (we *wrapError) Error() string {
-	return fmt.Sprintf("%v: %v", we.msg, we.cause)
-}
-
-//Unwrap method for errors.Wrapper interface
-func (e *wrapError) Unwrap() error {
-	return e.cause
-}
-
-//Format method for fmt.Formatter interface
-func (we *wrapError) Format(s fmt.State, v rune) {
-	errors.FormatError(we, s, v)
-}
-
-//FormatError method for errors.Formatter interface
-func (we *wrapError) FormatError(p errors.Printer) error {
-	p.Print(we.msg)
-	we.frame.Format(p)
-	return we.cause
 }
 
 /* MIT License
