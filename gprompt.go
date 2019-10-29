@@ -2,12 +2,12 @@ package gprompt
 
 import (
 	"bufio"
+	"errors"
 	"os"
 	"strings"
 
 	isatty "github.com/mattn/go-isatty"
 	"github.com/spiegel-im-spiegel/gocli/rwi"
-	errors "golang.org/x/xerrors"
 )
 
 //Prompt is a class for interactive mode in CUI shell

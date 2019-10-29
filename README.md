@@ -8,8 +8,6 @@
 
 See [go.mod](https://github.com/spiegel-im-spiegel/gprompt/blob/master/go.mod) file. 
 
-![gprompt](./gprompt.png)
-
 ## Usage of [gprompt] package
 
 ```go
