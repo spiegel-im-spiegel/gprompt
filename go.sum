@@ -1,6 +1,6 @@
-github.com/mattn/go-isatty v0.0.10 h1:qxFzApOv4WsAL965uUPIsXzAKCZxN2p9UqdhFS4ZW10=
-github.com/mattn/go-isatty v0.0.10/go.mod h1:qgIWMr58cqv1PHHyhnkY9lrL7etaEgOFcMEpPG5Rm84=
-github.com/spiegel-im-spiegel/gocli v0.10.1 h1:XWyq4dKFp2xTjiH2P2bxPZyi0++4IHp9HOksgGdfwpA=
-github.com/spiegel-im-spiegel/gocli v0.10.1/go.mod h1:9vRvly2giutJ2sAtQjrw570p9ulJA3twgKlurmnj12g=
-golang.org/x/sys v0.0.0-20191008105621-543471e840be h1:QAcqgptGM8IQBC9K/RC4o+O9YmqEm0diQn9QmZw/0mU=
-golang.org/x/sys v0.0.0-20191008105621-543471e840be/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+github.com/mattn/go-isatty v0.0.12 h1:wuysRhFDzyxgEmMf5xjvJ2M9dZoWAXNNr5LSBS7uHXY=
+github.com/mattn/go-isatty v0.0.12/go.mod h1:cbi8OIDigv2wuxKPP5vlRcQ1OAZbq2CE4Kysco4FUpU=
+github.com/spiegel-im-spiegel/gocli v0.10.3 h1:+9V71Tl3ELjNEsEcXVSZKxJHaiTC55mVsPQwrZq8AAc=
+github.com/spiegel-im-spiegel/gocli v0.10.3/go.mod h1:9vRvly2giutJ2sAtQjrw570p9ulJA3twgKlurmnj12g=
+golang.org/x/sys v0.0.0-20200116001909-b77594299b42 h1:vEOn+mP2zCOVzKckCZy6YsCtDblrpj/w7B9nxGNELpg=
+golang.org/x/sys v0.0.0-20200116001909-b77594299b42/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=

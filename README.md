@@ -1,6 +1,7 @@
 # [gprompt] - Simple CUI Prompt by Golang
 
-[![Build Status](https://travis-ci.org/spiegel-im-spiegel/gprompt.svg?branch=master)](https://travis-ci.org/spiegel-im-spiegel/gprompt)
+[![check vulns](https://github.com/spiegel-im-spiegel/gprompt/workflows/vulns/badge.svg)](https://github.com/spiegel-im-spiegel/gprompt/actions)
+[![lint status](https://github.com/spiegel-im-spiegel/gprompt/workflows/lint/badge.svg)](https://github.com/spiegel-im-spiegel/gprompt/actions)
 [![GitHub license](http://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/spiegel-im-spiegel/gprompt/master/LICENSE)
 [![GitHub release](http://img.shields.io/github/release/spiegel-im-spiegel/gprompt.svg)](https://github.com/spiegel-im-spiegel/gprompt/releases/latest)
 
